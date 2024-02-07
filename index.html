@@ -13,9 +13,47 @@
 </form>
 <h1>Time remaining: </h1>
 <div>
-    <button>Start</button>
-    <button>Stop</button>
-    <button>Snooze</button>
+    <button onclick = "startTimer()">Start</button>
+    <button onclick = "stopTimer()">Stop</button>
+    <button onclick = "snoozeTimer()">Snooze</button>
+    <p id="currentTime"></p>
+    <p id="timerUp"></p>
 </div>
+<script>
+    var id;
+
+    function startTimer(){
+        document.getElementById("timerUp").innerHTML = "";  //Get rid of 'timer is done' text
+        updateClock(startTime.value);   //Begin recursive update clock function
+    }
+    
+
+    function updateClock(currentCount){         
+        if(currentCount>0){ 
+            document.getElementById("currentTime").innerHTML = currentCount;    //Update on screen value
+            currentCount--;         
+            id = setTimeout(updateClock, 1000, currentCount);   //update timeout id, call method again until timer is up
+        }
+        else if (currentCount == 0){
+            timerUp();
+        }
+    }
+
+    function stopTimer(){
+        clearTimeout(id)
+        document.getElementById("currentTime").innerHTML = 0;
+    }
+
+    function snoozeTimer(){         //Does the same as startTimer except does not clear the 'timer is up' box (to implement insults later)
+        stopTimer() 
+        updateClock(startTime.value);
+    } 
+
+    function timerUp(){
+    document.getElementById("timerUp").innerHTML = "Your timer is done!";
+        stopTimer()
+    }
+</script>
+
 </body>
 </html>
