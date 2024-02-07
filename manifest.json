@@ -9,6 +9,8 @@
     "48": "icons/alarmclockicon.png"
   },
 
+  "permissions": ["activeTab"],
+
   "content_scripts": [
     {
       "js": ["insultreminders.js"]
