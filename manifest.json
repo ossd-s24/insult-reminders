@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "Insult Reminders",
+  "version": "1.0",
+
+  "description": "A reminder extension that insults the user when snooze is pressed",
+
+  "icons": {
+    "48": "icons/alarmclockicon.png"
+  },
+
+  "content_scripts": [
+    {
+      "js": ["insultreminders.js"]
+    }
+  ]
+}
