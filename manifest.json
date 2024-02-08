@@ -13,7 +13,8 @@
 
   "content_scripts": [
     {
-      "js": ["insultreminders.js"]
+      "js": ["insultreminders.js"],
+      "matches": ["*://*.mozilla.org/*"]
     }
   ]
 }
