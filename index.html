@@ -20,11 +20,17 @@
     <p id="timerUp"></p>
 </div>
 <script>
-    var id;
+    var id = "unassigned id";
 
     function startTimer(){
         document.getElementById("timerUp").innerHTML = "";  //Get rid of 'timer is done' text
-        updateClock(startTime.value);   //Begin recursive update clock function
+        if(id == ""){ //if the id has been clear, the timer has been stopped. needs to resume rather then restart
+           updateClock(document.getElementById("currentTime").innerHTML); 
+
+        }
+        else{
+          updateClock(startTime.value);   //Begin recursive update clock function
+        }
     }
     
 
@@ -35,13 +41,14 @@
             id = setTimeout(updateClock, 1000, currentCount);   //update timeout id, call method again until timer is up
         }
         else if (currentCount == 0){
+            document.getElementById("currentTime").innerHTML = currentCount; 
             timerUp();
         }
     }
 
     function stopTimer(){
         clearTimeout(id)
-        document.getElementById("currentTime").innerHTML = 0;
+        id = ""; //When counter is ended, clear the id
     }
 
     function snoozeTimer(){         //Does the same as startTimer except does not clear the 'timer is up' box (to implement insults later)
@@ -50,7 +57,7 @@
     } 
 
     function timerUp(){
-    document.getElementById("timerUp").innerHTML = "Your timer is done!";
+        document.getElementById("timerUp").innerHTML = "Your timer is done!";
         stopTimer()
     }
 </script>
