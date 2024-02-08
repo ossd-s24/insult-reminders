@@ -23,17 +23,16 @@
     var id = "unassigned id";
 
     function startTimer(){
-        document.getElementById("timerUp").innerHTML = "";  //Get rid of 'timer is done' text
-        if(id == ""){ //if the id has been clear, the timer has been stopped. needs to resume rather then restart
+        document.getElementById("timerUp").innerHTML = "";  //clear timer is done/insult text
+        if(id == ""){ //conditional determines whether to count down from textbox or paused value
            updateClock(document.getElementById("currentTime").innerHTML); 
-
         }
         else{
-          updateClock(startTime.value);   //Begin recursive update clock function
+          updateClock(startTime.value);   //Calls only when the clock is starting from textbox/not paused
         }
     }
     
-
+    //Recursive function to count down the clock every second
     function updateClock(currentCount){         
         if(currentCount>0){ 
             document.getElementById("currentTime").innerHTML = currentCount;    //Update on screen value
@@ -46,16 +45,18 @@
         }
     }
 
+
     function stopTimer(){
-        clearTimeout(id)
-        id = ""; //When counter is ended, clear the id
+        clearTimeout(id) //ends timer
+        id = ""; //When counter is stopped, clear the counters id (indicates to startTimer the clock is paused)
     }
 
-    function snoozeTimer(){         //Does the same as startTimer except does not clear the 'timer is up' box (to implement insults later)
+    function snoozeTimer(){         //Starts timer again from textbox value, will include insults here
         stopTimer() 
         updateClock(startTime.value);
     } 
 
+    //when timer reaches 0
     function timerUp(){
         document.getElementById("timerUp").innerHTML = "Your timer is done!";
         stopTimer()
