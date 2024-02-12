@@ -11,12 +11,11 @@
     <input type="text" id="startTime" name="startTime" required><br><br>
     <input type="submit" value="Enter">
 </form>
-<h1>Time remaining: </h1>
 <div>
     <button onclick = "startTimer()">Start</button>
     <button onclick = "stopTimer()">Stop</button>
+    <h3>Time remaining: </h3><p id="currentTime"></p>
     <button onclick = "snoozeTimer()">Snooze</button>
-    <p id="currentTime"></p>
     <p id="timerUp"></p>
 </div>
 <script>
