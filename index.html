@@ -50,10 +50,12 @@
         id = ""; //When counter is stopped, clear the counters id (indicates to startTimer the clock is paused)
     }
     
+    /*
     function snoozeTimer(){         //Starts timer again from textbox value, will include insults here
         stopTimer() 
         updateClock(startTime.value);
     } 
+    */
     
     //when timer reaches 0
     function timerUp(){
@@ -73,6 +75,31 @@
         const insultsArray = insults[category];
         const randomIndex = Math.floor(Math.random() * insultsArray.length);
         return insultsArray[randomIndex];
+    }
+
+    function snoozeTimer() {
+        // Choose next insult category
+        switch (currentInsultCategory) {
+            case "category1":
+                currentInsultCategory = "category2";
+                break;
+            case "category2":
+                currentInsultCategory = "category3";
+                break;
+            case "category3":
+                currentInsultCategory = "category1";
+                break;
+            default:
+                currentInsultCategory = "category1";
+        }
+
+        // Display insult
+        const insult = getRandomInsult(currentInsultCategory);
+        document.getElementById("timerUp").innerHTML = insult;
+
+        stopTimer() 
+        updateClock(startTime.value);
+        //startTimer();
     }
 
 </script>
