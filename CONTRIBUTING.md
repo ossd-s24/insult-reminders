@@ -48,7 +48,7 @@ git checkout new-feature
 ```
 git push origin new-feature
 ```
-5. Submit a pull request to the main repository.
+8. Submit a pull request to the main repository.
 
 ### Code of Conduct
 
