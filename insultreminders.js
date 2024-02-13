@@ -22,7 +22,6 @@ function startTimer() {
     startButton.style.visibility = "hidden";
     document.getElementById("currentTime").style.visibility = "visible";
     document.getElementById("timerUp").innerHTML = ""; // Clear timer is done/insult text
-    resetButton.style.visibility = "hidden";
     if (id == "") { // Conditional determines whether to count down from textbox or paused value
         updateClock(document.getElementById("currentTime").innerHTML);
     } else {
@@ -47,7 +46,7 @@ function updateClock(currentCount) {
 
 function stopTimer() {
     startButton.style.visibility = "visible";
-    resetButton.style.visibility = "visible";
+    stopButton.style.visibility = "hidden";
     clearTimeout(id); // Ends timer
     id = ""; // When counter is stopped, clear the counter's id (indicates to startTimer the clock is paused)
 
@@ -56,7 +55,6 @@ function resetTimer(){
     timeRemaining.style.visibility = "hidden";
     stopButton.style.visibility = "hidden";
     startButton.style.visibility = "visible";
-    resetButton.style.visibility = "hidden";
     document.getElementById("currentTime").style.visibility = "hidden";
     snoozeButton.style.visibility = "hidden";
     clearTimeout(id);
