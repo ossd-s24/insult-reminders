@@ -65,6 +65,7 @@ function resetTimer(){
     clearTimeout(id);
     id = "unassigned id";
     document.getElementById("timerUp").style.visibility = "hidden";
+    toggleButton.innerHTML = "Start";
 }
 function snoozeTimer() {
     document.getElementById("timerUp").style.visibility = "visible";
