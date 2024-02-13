@@ -1,12 +1,28 @@
 var id = "unassigned id";
 
-document.getElementById("startButton").addEventListener("click", startTimer);
-document.getElementById("stopButton").addEventListener("click", stopTimer);
-document.getElementById("snoozeButton").addEventListener("click", snoozeTimer);
+var startButton = document.getElementById("startButton");
+startButton.addEventListener("click", startTimer);
+
+var stopButton = document.getElementById("stopButton");
+stopButton.addEventListener("click", stopTimer);
+
+var snoozeButton = document.getElementById("snoozeButton");
+snoozeButton.addEventListener("click", snoozeTimer);
+
+var resetButton = document.getElementById("resetButton");
+resetButton.addEventListener("click", resetTimer);
+
+var timeRemaining = document.getElementById("timeRemaining");
 
 function startTimer() {
     console.log("Button clicked");
+    //Display elements that are initially and hide start button
+    stopButton.style.visibility = "visible";
+    timeRemaining.style.visibility = "visible";
+    startButton.style.visibility = "hidden";
+    document.getElementById("currentTime").style.visibility = "visible";
     document.getElementById("timerUp").innerHTML = ""; // Clear timer is done/insult text
+    resetButton.style.visibility = "hidden";
     if (id == "") { // Conditional determines whether to count down from textbox or paused value
         updateClock(document.getElementById("currentTime").innerHTML);
     } else {
@@ -21,17 +37,32 @@ function updateClock(currentCount) {
         currentCount--;
         id = setTimeout(updateClock, 1000, currentCount); // Update timeout id, call method again until timer is up
     } else if (currentCount == 0) {
+        snoozeButton.style.visibility = "visible";
+        stopButton.style.visibility = "hidden";
         document.getElementById("currentTime").innerHTML = currentCount;
         timerUp();
+        resetTimer.getElementById("timerUp").style.visibility = "visible";
     }
 }
 
 function stopTimer() {
+    startButton.style.visibility = "visible";
+    resetButton.style.visibility = "visible";
     clearTimeout(id); // Ends timer
     id = ""; // When counter is stopped, clear the counter's id (indicates to startTimer the clock is paused)
-}
 
+}
+function resetTimer(){
+    timeRemaining.style.visibility = "hidden";
+    stopButton.style.visibility = "visible";
+    document.getElementById("currentTime").style.visibility = "hidden";
+    snoozeButton.style.visibility = "hidden";
+    id = "unassigned id";
+    document.getElementById("timerUp").style.visibility = "hidden";
+
+}
 function snoozeTimer() {
+    document.getElementById("timerUp").style.visibility = "visible";
     switch (currentInsultCategory) {
         case "category1":
             currentInsultCategory = "category2";

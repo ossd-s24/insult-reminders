@@ -36,3 +36,6 @@ button {
     font-style: italic;
     margin-top: 15px;
 }
+.initiallyHidden {
+    visibility: hidden;
+}
