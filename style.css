@@ -1,0 +1,30 @@
+body {
+    background-image: url('icons/alarmclockicon.png'); /* Replace 'path/to/your/icon.png' with the path to your icon image file */
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 80px;
+    font-family: Arial, sans-serif;
+    background-color: #a9ceee; /* Light blue background */
+    text-align: center;
+}
+
+input[type="text"] {
+    padding: 5px;
+    width: 100px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    cursor: pointer;
+}
+
+#currentTime {
+    font-size: 30px;
+}
+
+#timerUp {
+    font-size: 15px;
+    font-style: italic;
+    margin-top: 15px;
+}
