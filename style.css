@@ -1,7 +1,15 @@
+html, body {
+    width: 350px;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #a9ceee; /* Light blue background */
     text-align: center;
+}
+
+a img {
+    padding-top: 20px;
 }
 
 form {
