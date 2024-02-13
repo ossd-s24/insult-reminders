@@ -26,6 +26,22 @@ function toggleTimer() {
     timerRunning = !timerRunning; // Toggle the timerRunning variable
 }
 
+function formatTime(seconds) {
+    var hr = Math.floor(seconds / 3600);
+    var min = Math.floor((seconds % 3600) / 60);
+    var sec = seconds % 60;
+    return hr.toString().padStart(2,'0') + ":" + min.toString().padStart(2,'0') + ":" + sec.toString().padStart(2,'0');
+}
+
+// Function to convert formatted time to seconds
+function timeToSeconds(timeString) {
+    var parts = timeString.split(":");
+    var hours = parseInt(parts[0]);
+    var minutes = parseInt(parts[1]);
+    var seconds = parseInt(parts[2]);
+    return hours*3600 + minutes*60 + seconds;
+}
+
 function startTimer() {
     console.log("start timer");
     //Display elements that are initially and hide start button
@@ -37,7 +53,7 @@ function startTimer() {
         document.getElementById("timerUp").innerHTML = ""; // Clear timer is done/insult text
     }
     if (id == "") { // Conditional determines whether to count down from textbox or paused value
-        updateClock(document.getElementById("currentTime").innerHTML);
+        updateClock(timeToSeconds(document.getElementById("currentTime").innerHTML));
     } else {
         updateClock(startTime.value); // Calls only when the clock is starting from textbox/not paused
     }
@@ -46,13 +62,7 @@ function startTimer() {
 // Recursive function to count down the clock every second
 function updateClock(currentCount) {
     if (currentCount > 0) {
-        var hr = Math.floor(currentCount / 3600);
-        var min = Math.floor((currentCount % 3600) / 60);
-        var sec = currentCount % 60;
-
-        let timeFormatted = hr.toString().padStart(2,'0') + ":" + min.toString().padStart(2,'0') + ":" + sec.toString().padStart(2,'0');
-        document.getElementById("currentTime").innerHTML = timeFormatted; // Update on screen value
-        
+        document.getElementById("currentTime").innerHTML = formatTime(currentCount); // Update on screen value
         currentCount--;
         id = setTimeout(updateClock, 1000, currentCount); // Update timeout id, call method again until timer is up
     } else if (currentCount == 0) {
