@@ -54,7 +54,9 @@ function stopTimer() {
 }
 function resetTimer(){
     timeRemaining.style.visibility = "hidden";
-    stopButton.style.visibility = "visible";
+    stopButton.style.visibility = "hidden";
+    startButton.style.visibility = "visible";
+    resetButton.style.visibility = "visible";
     document.getElementById("currentTime").style.visibility = "hidden";
     snoozeButton.style.visibility = "hidden";
     id = "unassigned id";
@@ -82,6 +84,9 @@ function snoozeTimer() {
 
     stopTimer();
     updateClock(startTime.value);
+
+    startButton.style.visibility = "hidden";
+    stopButton.style.visibility = "visible";
 }
 
 // Function to play timer sound
@@ -108,4 +113,5 @@ function timerUp() {
     document.getElementById("timerUp").innerHTML = "Your timer is done!";
     stopTimer();
     playTimerSound();
+    startButton.style.visibility = "hidden";
 }
