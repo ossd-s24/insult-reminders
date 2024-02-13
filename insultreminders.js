@@ -40,7 +40,13 @@ function startTimer() {
 // Recursive function to count down the clock every second
 function updateClock(currentCount) {
     if (currentCount > 0) {
-        document.getElementById("currentTime").innerHTML = currentCount; // Update on screen value
+        var hr = Math.floor(currentCount / 3600);
+        var min = Math.floor((currentCount % 3600) / 60);
+        var sec = currentCount % 60;
+
+        let timeFormatted = hr.toString().padStart(2,'0') + ":" + min.toString().padStart(2,'0') + ":" + sec.toString().padStart(2,'0');
+        document.getElementById("currentTime").innerHTML = timeFormatted; // Update on screen value
+        
         currentCount--;
         id = setTimeout(updateClock, 1000, currentCount); // Update timeout id, call method again until timer is up
     } else if (currentCount == 0) {
