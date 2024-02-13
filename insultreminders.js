@@ -56,12 +56,12 @@ function resetTimer(){
     timeRemaining.style.visibility = "hidden";
     stopButton.style.visibility = "hidden";
     startButton.style.visibility = "visible";
-    resetButton.style.visibility = "visible";
+    resetButton.style.visibility = "hidden";
     document.getElementById("currentTime").style.visibility = "hidden";
     snoozeButton.style.visibility = "hidden";
+    clearTimeout(id);
     id = "unassigned id";
     document.getElementById("timerUp").style.visibility = "hidden";
-
 }
 function snoozeTimer() {
     document.getElementById("timerUp").style.visibility = "visible";
