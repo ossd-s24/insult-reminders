@@ -94,6 +94,7 @@ function snoozeTimer() {
 
     stopTimer();
     updateClock(startTime.value);
+    snoozeButton.style.visibility = "hidden";
 }
 
 // Function to play timer sound
