@@ -12,6 +12,8 @@ resetButton.addEventListener("click", resetTimer);
 var timerRunning = false;
 var timeRemaining = document.getElementById("timeRemaining");
 
+var timerDone = "Your timer is done!";
+
 function toggleTimer() {
     console.log("Toggle")
     if (!timerRunning) {
@@ -29,7 +31,11 @@ function startTimer() {
     //Display elements that are initially and hide start button
     timeRemaining.style.visibility = "visible";
     document.getElementById("currentTime").style.visibility = "visible";
-    document.getElementById("timerUp").innerHTML = ""; // Clear timer is done/insult text
+
+    let currentText = document.getElementById("timerUp").innerHTML;
+    if (currentText == timerDone) {
+        document.getElementById("timerUp").innerHTML = ""; // Clear timer is done/insult text
+    }
     if (id == "") { // Conditional determines whether to count down from textbox or paused value
         updateClock(document.getElementById("currentTime").innerHTML);
     } else {
@@ -118,7 +124,7 @@ function getRandomInsult(category) {
 }
 
 function timerUp() {
-    document.getElementById("timerUp").innerHTML = "Your timer is done!";
+    document.getElementById("timerUp").innerHTML = timerDone;
     stopTimer();
     playTimerSound();
 }
