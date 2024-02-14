@@ -100,6 +100,7 @@ function stopTimer() {
 
 // function to reset the timer
 function resetTimer() {
+    // toggle button should display 'Start'
     if(!isStopped){
         toggleTimer();
     }
@@ -112,10 +113,6 @@ function resetTimer() {
     id = "unassigned id";
     document.getElementById("timerUp").style.visibility = "hidden";
     document.getElementById("startTime").value = "";
-
-    // change toggle button to 'Start'
-    toggleButton.innerHTML = "Start";
-
 }
 
 // function to snooze the timer
