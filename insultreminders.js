@@ -10,6 +10,9 @@ snoozeButton.addEventListener("click", snoozeTimer);
 var resetButton = document.getElementById("resetButton");
 resetButton.addEventListener("click", resetTimer);
 
+var closeButton = document.getElementById("closeButton");
+closeButton.addEventListener("click", closePopup);
+
 var timerRunning = false;
 var timeRemaining = document.getElementById("timeRemaining");
 var timerDone = "Your timer is done!";
@@ -169,4 +172,9 @@ function timerUp() {
     document.getElementById("timerUp").innerHTML = timerDone;
     stopTimer();
     playTimerSound();
+}
+
+// close the popup
+function closePopup() {
+    window.close();
 }
