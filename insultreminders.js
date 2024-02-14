@@ -111,6 +111,7 @@ function resetTimer() {
     clearTimeout(id);
     id = "unassigned id";
     document.getElementById("timerUp").style.visibility = "hidden";
+    document.getElementById("startTime").value = "";
 
     // change toggle button to 'Start'
     toggleButton.innerHTML = "Start";
