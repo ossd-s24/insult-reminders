@@ -13,6 +13,7 @@ resetButton.addEventListener("click", resetTimer);
 var timerRunning = false;
 var timeRemaining = document.getElementById("timeRemaining");
 var timerDone = "Your timer is done!";
+var isStopped = true;
 
 // function to switch the button between 'Start' and 'Stop'
 function toggleTimer() {
@@ -26,7 +27,7 @@ function toggleTimer() {
         toggleButton.innerHTML = "Start";
     }
     // toggle the timerRunning variable
-    timerRunning = !timerRunning; 
+    timerRunning = !timerRunning;
 }
 
 // function to format time in seconds to hh:mm:ss format
@@ -36,7 +37,7 @@ function formatTime(seconds) {
     var sec = seconds % 60;
 
     // return time formatted in hh:mm:ss format
-    return hr.toString().padStart(2,'0') + ":" + min.toString().padStart(2,'0') + ":" + sec.toString().padStart(2,'0');
+    return hr.toString().padStart(2, '0') + ":" + min.toString().padStart(2, '0') + ":" + sec.toString().padStart(2, '0');
 }
 
 // function to convert formatted time to seconds
@@ -46,11 +47,13 @@ function timeToSeconds(timeString) {
     var minutes = parseInt(parts[1]);
     var seconds = parseInt(parts[2]);
     // return total number of seconds
-    return hours*3600 + minutes*60 + seconds;
+    return hours * 3600 + minutes * 60 + seconds;
 }
 
 // function to start timer
 function startTimer() {
+    console.log("start pressed");
+    isStopped = false;
     console.log("start timer");
     //Display elements that are initially
     timeRemaining.style.visibility = "visible";
@@ -80,12 +83,12 @@ function updateClock(currentCount) {
         snoozeButton.style.visibility = "visible";
         document.getElementById("currentTime").innerHTML = currentCount;
         timerUp();
-        resetTimer.getElementById("timerUp").style.visibility = "visible";
     }
 }
 
 // function to stop the timer
 function stopTimer() {
+    isStopped = true;
     console.log("stop timer");
     clearTimeout(id); // ends timer
     id = ""; // when counter is stopped, clear the counter's id (indicates to startTimer the clock is paused)
@@ -93,8 +96,10 @@ function stopTimer() {
 }
 
 // function to reset the timer
-function resetTimer(){
-    console.log("reset timer");
+function resetTimer() {
+    if(!isStopped){
+        toggleTimer();
+    }
 
     // hide all timer related elements and reset id
     timeRemaining.style.visibility = "hidden";
@@ -103,9 +108,10 @@ function resetTimer(){
     clearTimeout(id);
     id = "unassigned id";
     document.getElementById("timerUp").style.visibility = "hidden";
-    
+
     // change toggle button to 'Start'
     toggleButton.innerHTML = "Start";
+
 }
 
 // function to snooze the timer
@@ -142,7 +148,7 @@ function playTimerSound() {
     audio.play();
 }
 
-// list of insults
+// list of insult
 const insults = {
     category1: ["You're so lazy, you'd rather count sand than get up.", "You're like a sloth on a caffeine rush.", "You procrastinate so much, you'll finish that task in your next life."],
     category2: ["You're the epitome of laziness; even gravity doesn't work on you.", "If laziness were an Olympic sport, you'd win gold for eternity.", "You're so lazy, you make a snail look like it's on speed."],
