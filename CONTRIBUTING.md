@@ -50,6 +50,16 @@ git push origin new-feature
 ```
 8. Submit a pull request to the main repository.
 
+### Temporary Installation in Firefox
+
+This is a handy place to temporarily install the extension to test changes.
+
+1. Open [this-firefox](about:debugging#/runtime/this-firefox)
+2. Click on the `Load Temporary Add-on` button
+3. Select any file in the extension's directory
+
+The extension is now installed until you restart Firefox. You should see the extension's icon in the Firefox toolbar.
+
 ### Code of Conduct
 
 We expect all contributors to adhere to our Code of Conduct. Please review the [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
