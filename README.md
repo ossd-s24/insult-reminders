@@ -6,6 +6,8 @@ Welcome to `Insult Reminders`, a Firefox extension designed to add a touch of hu
 
 ### Installation
 
+Install the extension from the [Firefox Browser Add-ons](https://addons.mozilla.org/en-US/firefox/addon/insult-reminders/) page.
+
 ### How to Use
 
 * Click on the Insult Reminders icon in your Firefox toolbar to open the extension.
