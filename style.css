@@ -49,6 +49,11 @@ button {
     font-style: italic;
     margin-top: 15px;
 }
+
+#snoozeButton {
+    margin-bottom: 20px;
+}
+
 .initiallyHidden {
     visibility: hidden;
 }
