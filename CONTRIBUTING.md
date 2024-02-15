@@ -11,9 +11,18 @@ If you encounter any issue or a bug while using Insult Reminders, please open a 
 - Any error messages or screenshots, if applicable.
 - Your operating system and browser version.
 
+### Requesting New Features
+
+Have a great idea for a new feature? We'd love to hear it! Please open a new issue on our GitHub repository and provide the following details:
+
+- A clear and descriptive title.
+- Description of the new feature you're suggesting.
+- Any relevant use cases or scenarios.
+- Optional: Proposed implementation ideas or suggestions.
+
 ### Set Up for Contribution
 
-If you'd like to contribute code to Insult Reminders, you can do so by submitting a pull request. Here's how to do it:
+If you'd like to contribute code, add documentation, or expand our database of insults, you can do so by submitting a pull request. Here's how to do it:
 1. Fork the repository to your GitHub account.
 2. Clone the repository in your local computer
 ```
