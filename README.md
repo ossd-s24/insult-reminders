@@ -23,3 +23,7 @@ We welcome contributions from the community to make Insult Reminders even better
 ### License
 
 Insult Reminders is licensed under the MIT License. See the [LICENSE](https://github.com/ossd-s24/insult-reminders/blob/main/LICENSE) file for details.
+
+### Acknowledgnments
+
+All external acknowledgments and contributions are listed [ACKNOWLEDGMENTS](/ACKNOWLEDGMENTS.md)
