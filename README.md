@@ -4,6 +4,8 @@
 
 Welcome to `Insult Reminders`, a Firefox extension designed to add a touch of humor to your productivity routine. With this extension, you can set timers for your tasks, and if you hit snooze when the timer goes off, get ready to receive a hilarious insult as a reminder!
 
+![Demo](assets/demo.gif)
+
 ### Installation
 
 Install the extension from the [Firefox Browser Add-ons](https://addons.mozilla.org/en-US/firefox/addon/insult-reminders/) page.
