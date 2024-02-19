@@ -13,7 +13,7 @@ resetButton.addEventListener("click", resetTimer);
 var closeButton = document.getElementById("closeButton");
 closeButton.addEventListener("click", closePopup);
 
-var sound = document.getElementById("timerSound");
+var audio = document.getElementById("timerSound");
 
 var timerRunning = false;
 var timeRemaining = document.getElementById("timeRemaining");
@@ -93,7 +93,7 @@ function updateClock(currentCount) {
 
 // function to stop the timer
 function stopTimer() {
-    sound.pause();
+    audio.pause();
     isStopped = true;
     console.log("stop timer");
     clearTimeout(id); // ends timer
@@ -102,10 +102,11 @@ function stopTimer() {
 
 // function to reset the timer
 function resetTimer() {
+    stopTimer();
     // toggle button should display 'Start'
-    if(!isStopped){
-        toggleTimer();
-    }
+    toggleButton.innerHTML = "Start";
+    isStopped = false;
+    timerRunning = false;
 
     // hide all timer related elements and reset id
     timeRemaining.style.visibility = "hidden";
@@ -147,7 +148,6 @@ function snoozeTimer() {
 
 // function to play timer sound
 function playTimerSound() {
-    var audio = document.getElementById("timerSound");
     audio.play();
 }
 
