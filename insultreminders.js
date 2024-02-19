@@ -13,6 +13,8 @@ resetButton.addEventListener("click", resetTimer);
 var closeButton = document.getElementById("closeButton");
 closeButton.addEventListener("click", closePopup);
 
+var sound = document.getElementById("timerSound");
+
 var timerRunning = false;
 var timeRemaining = document.getElementById("timeRemaining");
 var timerDone = "Your timer is done!";
@@ -91,11 +93,11 @@ function updateClock(currentCount) {
 
 // function to stop the timer
 function stopTimer() {
+    sound.pause();
     isStopped = true;
     console.log("stop timer");
     clearTimeout(id); // ends timer
     id = ""; // when counter is stopped, clear the counter's id (indicates to startTimer the clock is paused)
-
 }
 
 // function to reset the timer
