@@ -150,11 +150,12 @@ function playTimerSound() {
 }
 
 // list of insult
-const insults = {
-    category1: ["You're so lazy, you'd rather count sand than get up.", "You're like a sloth on a caffeine rush.", "You procrastinate so much, you'll finish that task in your next life."],
-    category2: ["You're the epitome of laziness; even gravity doesn't work on you.", "If laziness were an Olympic sport, you'd win gold for eternity.", "You're so lazy, you make a snail look like it's on speed."],
-    category3: ["You're a black hole of productivity, sucking in ambition and emitting nothing.", "Your laziness is so legendary, it has its own theme song.", "If there were a Nobel Prize for idleness, you'd win it by doing absolutely nothing."]
-};
+let insults = [];
+fetchInsults();
+async function fetchInsults() {
+    const response = await fetch('insults.json');
+    insults = await response.json();
+}
 
 let currentInsultCategory = "category1"; // default insult category
 
